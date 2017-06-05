@@ -4,7 +4,16 @@
     Welcome to {{title}}!!
   </h1>
 </div>
-
+{{ (item | async)?.color }} <br>
+{{ (item | async)?.size }} <br>
+{{ (item | async)?.material }} <br>
+{{ item | async }} <br>
+<ul>
+  <li *ngFor="let item of items | async">
+     {{ item | json }}
+  </li>
+</ul>
+<br>
 <ul>
   <li class="text" *ngFor="let item of items | async">
     {{item.$value}}
