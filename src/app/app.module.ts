@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
@@ -6,14 +7,43 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
+import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import 'hammerjs';
+
+import MessagesComponent from "./components/messages/messages";
+import NewRoomModalComponent from "./components/newRoomModal/newRoomModal.component";
+import RoomsComponent from "./components/rooms/rooms.component";
+import TitleBarComponent from "./components/titleBar/titleBar";
+import UserSigninComponent from "./components/userSignin/userSignin";
+
+
+
 @NgModule({
     imports: [
       BrowserModule,
+      BrowserAnimationsModule,
       AngularFireModule.initializeApp(environment.firebase, 'Bloc-Chat'), // imports firebase/app needed for everything
       AngularFireDatabaseModule, // imports firebase/database, only needed for database features
       AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+
+      MaterialModule,
+      FlexLayoutModule,
+
+
+
     ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ]
+  declarations: [ AppComponent,
+                  MessagesComponent,
+                  NewRoomModalComponent,
+                  RoomsComponent,
+                  TitleBarComponent,
+                  UserSigninComponent ],
+
+  bootstrap: [ AppComponent ],
+  
+  entryComponents : [NewRoomModalComponent]
+
+
 })
 export class AppModule {}
