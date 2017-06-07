@@ -2,12 +2,11 @@
     <md-toolbar>Messages</md-toolbar>
 
     <md-list>
-        <md-list-item>Message 1</md-list-item>
-        <md-list-item>Message 2</md-list-item>
-        <md-list-item>Message 3</md-list-item>
-        <md-list-item>Message 4</md-list-item>
+        <md-list-item *ngFor="let message of this.appComponent.messages | async"> {{ message.content }} </md-list-item>
+
     </md-list>
+    <button>Send Message</button>
     <md-input-container>
-      <input mdInput placeholder="New Message" value="">
+      <input mdInput placeholder="New Message">
     </md-input-container>
 </md-card>
