@@ -16,7 +16,8 @@ export default class NewRoomModalComponent {
        }
 
     submit(){
-         console.log("in submit(), newRoomName = ", this.newRoomName)
-         this.dataOpsService.addRoom(this.newRoomName);
+        if(this.newRoomName) {
+            this.dataOpsService.addRoom(this.newRoomName);
+        };
     }
 }

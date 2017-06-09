@@ -11,9 +11,11 @@ import DataOpsService from './services/dataOps.service';
 export default class AppComponent {
     messages: FirebaseListObservable<any[]>;
     rooms: FirebaseListObservable<any[]>;
-    currentRoom: string = '-KkqHJ9n_1a1XjGJxAYh';
+    currentRoom: { roomName: string, roomKey: string };
+
 
     constructor( private dataOpsService: DataOpsService )  {
-         dataOpsService.getMessages(this.currentRoom);
+        this.currentRoom = { roomName: 'xxx', roomKey: '-KkqHJ9n_1a1XjGJxAYh'}
+         dataOpsService.getMessages(this.currentRoom.roomKey);
     }
 }

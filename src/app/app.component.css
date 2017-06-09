@@ -2,3 +2,12 @@
     width: 1000px;
     margin: 0 auto;
 }
+
+md-toolbar {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+md-raised-button {
+    height: 75px;
+}

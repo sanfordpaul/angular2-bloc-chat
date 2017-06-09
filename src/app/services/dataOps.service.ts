@@ -7,7 +7,7 @@ export default class DataOpsService {
     rooms: FirebaseListObservable<any[]>;
     messages: FirebaseListObservable<any[]>;
 
-    constructor(public database: AngularFireDatabase, ){
+    constructor(public database: AngularFireDatabase){
 
     }
 
@@ -21,14 +21,21 @@ export default class DataOpsService {
         return this.rooms;
     }
     getMessages(currentRoom: string) {
-        console.log('in getMessages, currentRoom = ', currentRoom)
+
         this.messages = this.database.list('/messages', {
             query: {
                 orderByChild: 'roomObject/roomId',
                 equalTo: currentRoom
             }
-    });
-        console.log('retrieved messages = ', this.messages)
+        });
         return this.messages;
+    }
+
+    addMessage(newMessage: string, currentRoom: string) :void {
+        this.messages = this.database.list('/messages');
+        this.messages.push({content: newMessage,
+                            roomObject: {roomId: currentRoom, roomName: "roomNamex"},
+                            timeSentObject: {filtered: "timeFilteredx", value: "timeValuex"},
+                            sentBy: "sentByx"});
     }
 }

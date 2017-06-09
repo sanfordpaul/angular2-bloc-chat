@@ -1,19 +1,18 @@
 <md-card>
 
     <md-toolbar>Rooms</md-toolbar>
-    <!--
-    <div>
 
-        <p [attr.roomid]="roomid" (click)="roomClicked($event)" >room 1 </p>
-
-    </div>
-    -->
      <md-list>
 
-        <md-list-item *ngFor="let room of rooms | async" attr.roomid="{{room.$key}}" (click)="roomClicked($event)">{{ room.roomName }} </md-list-item>
+        <md-list-item *ngFor="let room of rooms | async" attr.roomName="{{room.roomName}}" attr.roomKey="{{room.$key}}"  (click)="roomClicked($event)">{{ room.roomName }} </md-list-item>
 
     </md-list>
 
-    <button md-raised-button  (click)="addRoom()" color="accent">Add Room</button>
+    <div fxLayout="row" fxLayoutAlign="end center" >
+
+        <button md-raised-button  (click)="addRoom()" color="accent">Add Room</button>
+
+    </div>
+
 
 </md-card>

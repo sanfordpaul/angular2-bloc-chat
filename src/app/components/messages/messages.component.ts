@@ -14,10 +14,13 @@ export default class MessagesComponent {
 
 
     constructor( private dataOpsService: DataOpsService, public appComponent: AppComponent )  {
-         appComponent.messages = dataOpsService.getMessages(appComponent.currentRoom);
+         appComponent.messages = dataOpsService.getMessages(appComponent.currentRoom.roomKey);
     }
 
-    newMessage(){
-        console.log('in newMessage()');
+    addMessage(newMessage: string) :void {
+        if(newMessage) {
+            this.dataOpsService.addMessage(newMessage, this.appComponent.currentRoom.roomKey);
+            newMessage = "";
+        };
     }
 }

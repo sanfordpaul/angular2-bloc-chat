@@ -1,12 +1,18 @@
 <md-card>
-    <md-toolbar>Messages</md-toolbar>
+    <md-toolbar>Messages for {{appComponent.currentRoom.roomName}}</md-toolbar>
 
     <md-list>
         <md-list-item *ngFor="let message of this.appComponent.messages | async"> {{ message.content }} </md-list-item>
-
     </md-list>
-    <button>Send Message</button>
-    <md-input-container>
-      <input mdInput placeholder="New Message">
-    </md-input-container>
+
+    <div fxLayout="row" fxLayoutGap="20px" fxAlign="space-between center">
+
+        <md-input-container fxFlex="grow">
+          <input mdInput #newMessage placeholder="New Message">
+        </md-input-container>
+
+        <button fxFlex="25%" md-raised-button  (click)="addMessage(newMessage.value); newMessage.value=''"  color="accent">Send Messaage</button>
+
+    </div>
+
 </md-card>
