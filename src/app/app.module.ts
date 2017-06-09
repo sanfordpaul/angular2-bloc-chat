@@ -12,12 +12,14 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import 'hammerjs';
 
+import { CookieModule } from 'ngx-cookie';
+
 import MessagesComponent from "./components/messages/messages.component";
 import NewRoomModalComponent from "./components/newRoomModal/newRoomModal.component";
 import RoomsComponent from "./components/rooms/rooms.component";
 import TitleBarComponent from "./components/titleBar/titleBar";
 import UserSigninComponent from "./components/userSignin/userSignin";
-
+import NewUserModalComponent from "./components/newUserModal/newUserModal.component"
 
 
 @NgModule({
@@ -32,19 +34,20 @@ import UserSigninComponent from "./components/userSignin/userSignin";
       MaterialModule,
       FlexLayoutModule,
 
-
+      CookieModule.forRoot(),
 
     ],
   declarations: [ AppComponent,
                   MessagesComponent,
                   NewRoomModalComponent,
+                  NewUserModalComponent,
                   RoomsComponent,
                   TitleBarComponent,
                   UserSigninComponent ],
 
   bootstrap: [ AppComponent ],
 
-  entryComponents : [NewRoomModalComponent]
+  entryComponents : [NewRoomModalComponent, NewUserModalComponent]
 
 
 })

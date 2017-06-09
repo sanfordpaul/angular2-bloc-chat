@@ -1,5 +1,8 @@
 <md-card>
-    <md-toolbar>Messages for {{appComponent.currentRoom.roomName}}</md-toolbar>
+    <md-toolbar>
+        <span fxFlex="grow">Messages for {{appComponent.currentRoom.roomName}}</span>
+        <span fxFlex style="text-align:right">{{appComponent.currentUser}}</span>
+    </md-toolbar>
 
     <md-list>
         <md-list-item *ngFor="let message of this.appComponent.messages | async"> {{ message.content }} </md-list-item>

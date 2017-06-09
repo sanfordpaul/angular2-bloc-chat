@@ -21,7 +21,7 @@ export default class RoomsComponent {
         disableClose: true,
     }
 
-    constructor( public dialog: MdDialog,
+    constructor( public mddialog: MdDialog,
                  private dataOpsService: DataOpsService,
                  private appComponent: AppComponent)
     {
@@ -30,7 +30,7 @@ export default class RoomsComponent {
     }
 
     addRoom() {
-        let dialogRef = this.dialog.open(NewRoomModalComponent, this.dialogConfig);
+        let dialogRef = this.mddialog.open(NewRoomModalComponent, this.dialogConfig);
 
     }
 

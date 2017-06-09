@@ -1,0 +1,8 @@
+<h3 md-dialog-title>New User Sign-in</h3>
+<md-input-container>
+  <input fxFlex mdInput placeholder="New User Name" #newUserName >
+</md-input-container>
+<md-dialog-actions>
+    <button fxFlex md-raised-button [md-dialog-close]="newUserName.value" color="accent" >Submit</button>
+    <button fxFlex md-raised-button md-dialog-close color="warn">Cancel</button>
+</md-dialog-actions>
